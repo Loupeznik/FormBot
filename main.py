@@ -65,7 +65,22 @@ def qtable(q, num_q, add):  #q - id listu, num_q - počet otázek, add - full bi
 
 #přidat možnost vytvoření nového souboru a zápisu do něj
 
-with open('output.txt','a') as f:
+#init
+outfile = "output.txt"
+
+print('Vítejte v generátoru dotazníkových výsledků')
+print('Pro pokračování vyberte z následujích možností: \n Stiskem klávesy 1 pokračujte v defaultním režimu \n Stiskem klávesy 2 pokračujte zadáním vlastního výstupu \n 3 pro debug')
+userinput = input()
+
+if userinput == '1': #defaultní nastavení dle základních parametrů pro dotazník A4MRK
+    pass
+elif userinput == '2': #tvorba vlastního souboru --> přidat logiku, možnost přidání vlastních otázek a odpovědí přes dialog
+    print('Zadejte vlastní název výstupního souboru')
+    outfile = input()
+else:
+    print('allah') #debug
+
+with open(outfile,'a') as f:
     for y in range(len(q0)):
         f.write(q0[y] + ';') #hlavičky sloupců
     i = 1
@@ -76,4 +91,5 @@ with open('output.txt','a') as f:
         i+=1
     #print(q1, file=f) #debug
 
-input('allah') #debug
+#input("allah") #debug
+input('Odpovědi vygenerovány do výstupního souboru, potvrďte jakoukoliv klávesou')
