@@ -73,10 +73,12 @@ print('Pro pokračování vyberte z následujích možností: \n Stiskem kláves
 userinput = input()
 
 if userinput == '1': #defaultní nastavení dle základních parametrů pro dotazník A4MRK
-    pass
+    num_resp = 50
 elif userinput == '2': #tvorba vlastního souboru --> přidat logiku, možnost přidání vlastních otázek a odpovědí přes dialog
     print('Zadejte vlastní název výstupního souboru')
     outfile = input()
+    print('Zadejte počet imaginativních respondentů')
+    num_resp = input()
 else:
     print('allah') #debug
 
@@ -85,7 +87,7 @@ with open(outfile,'a') as f:
         f.write(q0[y] + ';') #hlavičky sloupců
     i = 1
     print('\n', file=f)
-    while i <= 50:
+    while i <= num_resp:
         print(i, ';', random.choice(q1), ';', random.choice(q2), ';', get_three(q3), ';', get_three(q4), ';', random.choice(q5), ';', random.choice(q6), ';', random.choice(q7), ';', 
         qtable(q8, 5, 3), ';', qtable(q8, 7, 0), ';', random.choice(q10), ';', random.choice(q11), ';', random.choice(q12), ';', random.choice(q13), ';', random.choice(q14), file=f)
         i+=1
