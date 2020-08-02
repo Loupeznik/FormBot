@@ -39,7 +39,6 @@ q14 = ['do 5000CZK','5001-10000CZK','10001-20000CZK','20001CZK a více']
 def get_three(q):
     choices = random.sample(q, 3)
     if len(choices) > len(set(choices)): #zjišťuje redundanci v arrayi
-        #return 'nigga' #debug
         return 'ERR001 - RANDOMIZER FUCKED UP' #ošetřené, nemůže se stát --> legacy
     else:
         return choices
@@ -80,7 +79,7 @@ elif userinput == '2': #tvorba vlastního souboru --> přidat logiku, možnost p
     print('Zadejte počet imaginativních respondentů')
     num_resp = input()
 else:
-    print('allah') #debug
+    print('debug') #debug
 
 with open(outfile,'a') as f:
     for y in range(len(q0)):
@@ -93,5 +92,5 @@ with open(outfile,'a') as f:
         i+=1
     #print(q1, file=f) #debug
 
-#input("allah") #debug
+#input("debug") #debug
 input('Odpovědi vygenerovány do výstupního souboru, potvrďte jakoukoliv klávesou')
